@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import Image
+import datetime
+import time
 
 def make_regalur_image(img, size = (256, 256)):
 	return img.resize(size).convert('RGB')
@@ -48,10 +50,13 @@ def make_doc_data(lf, rf):
 	
 
 if __name__ == '__main__':
-	path = r'test/TEST%d/%d.JPG'
-	for i in xrange(1, 7):
+	#path = r'test/TEST%d/%d.JPG'
+	start = time.time()
+	for i in xrange(1, 2):
 		print 'test_case_%d: %.3f%%'%(i, \
 			calc_similar_by_path('test/TEST%d/%d.JPG'%(i, 1), 'test/TEST%d/%d.JPG'%(i, 2))*100)
-	
+		end = time.time()
+	print('time:\n')
+	print str(end-start)
 #	make_doc_data('test/TEST4/1.JPG', 'test/TEST4/2.JPG')
 
